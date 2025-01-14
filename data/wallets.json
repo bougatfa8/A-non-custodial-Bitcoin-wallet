@@ -1,0 +1,62 @@
+[
+    {
+        "wallet_name": "ahmed_testing",
+        "password_hash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+        "mnemonic_passphrase": "bunker among rebel hello between action city below defy mass neither remove",
+        "bech32_address": "bc1qg8ccwyhpeupnwtvm3spv46xxthaaczkuh50js7"
+    },
+    {
+        "wallet_name": "ahmed_recieve",
+        "password_hash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+        "mnemonic_passphrase": "device host frog chimney setup aware cabin skill dry medal credit start",
+        "bech32_address": "bc1qvszq9uh5eza3r5cnqyr0wzqrxwxgwaqcefma9q"
+    },
+    {
+        "wallet_name": "ahmed_multisig_wallet_valid",
+        "mnemonic_passphrase": "exhibit door hospital van main tube primary fold stem roast swing learn",
+        "private_hex": "eb744213284dbeaa465bebf3aa257e7a79c4f9db775374f59ce720c3054ff950",
+        "bech32_address": "bc1q0wu763x9pawvlq7vsfp3ghxxstsj76tt0m64zd8uzadeesutjatsgzqqn4"
+    },
+    {
+        "wallet_name": "ahmed_test",
+        "password_hash": "8e35c2cd3bf6641bdb0e2050b76932cbb2e6034a0ddacc1d9bea82a6ba57f7cf",
+        "mnemonic_passphrase": "cup bonus ankle must cook bronze gallery term picnic vivid pudding october",
+        "bech32_address": "bc1qkf4rd5jh3p54v2s8eftdxjyphxtl5dwyd6q8k8"
+    },
+    {
+        "wallet_name": "mahmoud_walllet",
+        "mnemonic_passphrase": "escape summer skill stem family mandate cannon female pipe trouble endorse comic",
+        "private_hex": "a44845b39a740ed1a46c2858b0a24ad6db2e28319bccba1d39a24095149694f7",
+        "bech32_address": "bc1q7l2gmzpe0trhx4dvyuhqckk3q5aznl6e3x2dux"
+    },
+    {
+        "wallet_name": "mahmoud_w",
+        "mnemonic_passphrase": "escape summer skill stem family mandate cannon female pipe trouble endorse comic",
+        "private_hex": "a44845b39a740ed1a46c2858b0a24ad6db2e28319bccba1d39a24095149694f7",
+        "bech32_address": "bc1q7l2gmzpe0trhx4dvyuhqckk3q5aznl6e3x2dux"
+    },
+    {
+        "wallet_name": "testttt",
+        "mnemonic_passphrase": "escape summer skill stem family mandate cannon female pipe trouble endorse comic",
+        "private_hex": "a44845b39a740ed1a46c2858b0a24ad6db2e28319bccba1d39a24095149694f7",
+        "bech32_address": "bc1q7l2gmzpe0trhx4dvyuhqckk3q5aznl6e3x2dux"
+    },
+    {
+        "wallet_name": "ahmes_oot",
+        "mnemonic_passphrase": "bunker among rebel hello between action city below defy mass neither remove",
+        "private_hex": "4b787610f24887e42239d4f38f53b588366ff303d4aba3c7032bf63ccf01a520",
+        "bech32_address": "bc1q37vnw5l8glxpux3gpagl4r4pcgr7vdsuyf5awy"
+    },
+    {
+        "wallet_name": "name-2",
+        "password_hash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+        "mnemonic_passphrase": "embody subway dance magic dawn pear assume glance wise drive biology fancy",
+        "bech32_address": "bc1quj5q4mp4zq4amv0accwup5u2t3dxqa5zgdn0cp"
+    },
+    {
+        "wallet_name": "walletty",
+        "password_hash": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+        "mnemonic_passphrase": "exit various river zoo despair menu rent human olympic slide include club",
+        "bech32_address": "bc1qzcsfgw2hrm6c53a2kqzthf6q3nuvdrp6xguf47"
+    }
+]

@@ -1,0 +1,14 @@
+Kivy==2.3.1
+Kivy-Garden==0.1.5
+kivymd==1.1.1
+bitcoinlib==0.7.1
+pyperclip==1.8.2
+pycryptodome==3.19.1
+qrcode==7.4.2
+requests==2.28.1
+Pillow==9.5.0
+shutil==1.0
+os==1.0
+hashlib==3.12.0
+json==2.0.9
+threading==0.0.1

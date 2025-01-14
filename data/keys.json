@@ -1,0 +1,27 @@
+[
+    {
+        "name_key": "key_multisig_1",
+        "public_master_key": "zpub6jftahH18ngZxAcZtnr28Uy2CRFLF8vkhKcmfCKBTSHY7ssFSaBWmroqCjbqW8iQHEX1689nXDeirC339RXvEXSG89GPV2f5iG4LRwTd9od",
+        "mnemonic_passphrase": "impose number over rather dial before multiply age machine spike spirit seven"
+    },
+    {
+        "name_key": "key_multisig_2",
+        "public_master_key": "zpub6jftahH18ngZxHCyV5hT7NvBGTPEJu4uRpZJgM7U6ZbTph2KcC27CjacTJBtRziFPt7QfGPzRt8oVUZgRFjRVKP8JCBPdths6BvNuDVEdKM",
+        "mnemonic_passphrase": "expand shield rich pole during excess runway start rhythm autumn extend price"
+    },
+    {
+        "name_key": "key_multisig_2",
+        "public_master_key": "zpub6jftahH18ngZxHCyV5hT7NvBGTPEJu4uRpZJgM7U6ZbTph2KcC27CjacTJBtRziFPt7QfGPzRt8oVUZgRFjRVKP8JCBPdths6BvNuDVEdKM",
+        "mnemonic_passphrase": "expand shield rich pole during excess runway start rhythm autumn extend price"
+    },
+    {
+        "name_key": "ahmed",
+        "public_master_key": "zpub6jftahH18ngZxQ8XmJctCCtVRmGRXeDkMTRA4PLMx9Q2c4PKNJ47LjY4vDgaet4ukQf2tg9FDZ1u8tUXy8HVXBUFwuMyrJ1PAkNbhFG9LHU",
+        "mnemonic_passphrase": "excess dilemma child item reject craft romance culture knock shine walk horror"
+    },
+    {
+        "name_key": "t2",
+        "public_master_key": "zpub6jftahH18ngZyczZpUgkUoKAkQY99ycBfJwuMaxJWVviYdXHpUaVEXKUy21ra8hcvPCNWg1zsdNtyhLrFubUjLUjA8iEZHew2QV6qjCdGaF",
+        "mnemonic_passphrase": "flag turkey extra rival miss divide frame source blouse dove often ordinary"
+    }
+]

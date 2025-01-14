@@ -1,0 +1,1025 @@
+<MainMenu>:
+    Image:
+        source: 'assets/low.jpg'  # Replace with the actual image path
+        allow_stretch: True
+        keep_ratio: False
+        #opacity: 0.5  # Adjust opacity for desired effect
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 60
+        spacing: 40
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Center the layout
+
+        Label:
+            text: "Welcome"
+            font_size: 48
+            bold: True
+            color: 1, 1, 1  # White text for better contrast
+            size_hint_y: None
+            height: '80dp'
+
+        Button:
+            text: "Create New Wallet"
+            background_color: 0, 0.5, 1, 0.5  # Light blue background
+            color: 1, 1, 1  # White text
+            size_hint: (1, None)
+            height: '80dp'
+            font_size: 28
+            on_press: root.create_new_wallet()
+
+        Button:
+            text: "Access Wallets"
+            background_color: 0, 0.5, 1, 0.5
+            color: 1, 1, 1
+            size_hint: (1, None)
+            height: '80dp'
+            font_size: 28
+            on_press: root.login_or_open_wallet()
+
+        Button:
+            text: "Create Multi-Signature Wallet"
+            background_color: 0, 0.5, 1, 0.5
+            color: 1, 1, 1
+            size_hint: (1, None)
+            height: '80dp'
+            font_size: 28
+            on_press: root.create_multi_sig_wallet()
+
+        Button:
+            text: "Load Wallet"
+            background_color: 0, 0.5, 1, 0.5
+            color: 1, 1, 1
+            size_hint: (1, None)
+            height: '80dp'
+            font_size: 28
+            on_press: root.load_Wallet_from_seed_phrase()
+
+
+<WalletListScreen>:
+    Image:
+        source: 'assets/low.jpg'  # Replace with the actual image path
+        allow_stretch: True
+        keep_ratio: False
+        #opacity: 0.5  # Adjust opacity for desired effect
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: "Available Wallets"
+            font_size: 32
+            bold: True
+            size_hint_y: None
+            height: 60
+
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            GridLayout:
+                id: wallet_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 10
+
+        Button:
+            text: "Back"
+            font_size: 36
+            size_hint_y: (1,None)
+            height: 80
+            background_color: 0.8, 0.0, 0.0, 1  # Transparent green color
+
+            on_press: root.go_back()
+
+
+<CreateNewWallet>:
+
+    Image:
+        source: 'assets/low.jpg'  # Replace with the actual image path
+        allow_stretch: True
+        keep_ratio: False
+        #opacity: 0.5  # Adjust opacity for desired effect
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 50  # Reduced padding for more space
+        spacing: 40  # Increased spacing between widgets
+
+        # Spacer for vertical centering
+        Widget:
+            size_hint_y: 0.5
+
+        Label:
+            text: "Create New Wallet"
+            font_size: 60  # Increased font size for the title
+            bold: True
+            size_hint_y: None
+            height: '30dp'
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.width, None
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 1  # Occupies 90% of the width for centering
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 30  # Spacing between each row
+
+            BoxLayout:
+                size_hint_y: None
+                height: '80dp'
+
+                Label:
+                    text: "Wallet Name:"
+                    font_size: 48
+                    size_hint_x: 0.3
+                    valign: 'middle'
+                    text_size: self.width, None
+
+                TextInput:
+                    id: wallet_name_input
+                    multiline: False
+                    font_size: 58
+                    size_hint_x: 0.7
+                    height: '20dp'
+
+            BoxLayout:
+                size_hint_y: None
+                height: '80dp'
+
+                Label:
+                    text: "Password:"
+                    font_size: 48
+                    size_hint_x: 0.3
+                    valign: 'middle'
+                    text_size: self.width, None
+
+                TextInput:
+                    id: password_input
+                    password: True
+                    multiline: False
+                    font_size: 58
+                    size_hint_x: 0.7
+                    height: '20dp'
+
+
+
+            BoxLayout:
+                size_hint_y: None
+                height: '80dp'
+
+                Label:
+                    text: "Confirm Password:"
+                    font_size: 48
+                    size_hint_x: 0.3
+                    valign: 'middle'
+                    text_size: self.width, None
+
+                TextInput:
+                    id: confirm_password_input
+                    password: True
+                    multiline: False
+                    font_size: 58
+                    size_hint_x: 0.7
+                    height: '20dp'
+        Label:
+            text: ""
+            font_size: 28
+            bold: True
+            color: 1, 1, 1  # White text for better contrast
+            size_hint_y: None
+            height: '30dp'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: '100dp'  # Larger buttons
+            spacing: 60  # Spacing between buttons
+            size_hint_x: 1
+
+            Button:
+                text: "Create Wallet"
+                font_size: 28  # Larger button font
+                height: '100dp'
+                background_color: 0.0, 1.0, 0.0, 0.7,  # Transparent green
+
+                size_hint_x: 0.5
+                on_press: root.submit_new_wallet()
+
+
+            Button:
+                text: "Back"
+                font_size: 28
+                height: '100dp'
+                background_color:1.0, 0.0, 0.0, 0.7,  # Transparent red
+
+                size_hint_x: 0.5
+                on_press: root.go_back()
+
+
+<WalletCreated>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 60  # Adjusted padding
+        spacing: 30  # Spacing between widgets
+
+        Label:
+            text: "Wallet Created Successfully!"
+            font_size: 40
+            bold: True
+            size_hint_y: None
+            height: '50dp'
+
+        Label:
+            text: "Please save the following mnemonic passphrase securely. It is essential for wallet recovery:"
+            font_size: 35
+            halign: 'left'
+            valign: 'middle'
+            text_size: self.width, None
+            size_hint_y: None
+            height: '70dp'
+
+
+
+        MDCard:
+            orientation: 'vertical'
+            size_hint_y: 0.3
+            padding: 10
+            spacing: 5
+
+            MDLabel:
+                id: passphrase_label
+                text: root.passphrase
+                font_size: 120
+                text_size: self.width, None  # Text size should adjust to the label's width
+                halign: 'center'  # Horizontally centers the text
+                valign: 'middle'  # Vertically centers the text
+                size_hint: 1, 1  # Ensures the label expands to fill the card
+                height: self.texture_size[1]  # Adjust height based on the content
+                width: self.parent.width  # Ensures the label fills the width of the parent card
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: '80dp'
+            spacing: 40
+
+            Button:
+                text: "Copy Passphrase"
+                font_size: 22
+                size_hint_x: 0.5
+                background_color: 0.0, 0.0, 1.0, 0.7  # Transparent blue
+
+                on_press: root.copy_passphrase()
+
+            Button:
+                text: "Finish"
+                font_size: 22
+                size_hint_x: 0.5
+                on_press: root.finish()
+                background_color: 0.0, 1.0, 0.0, 0.7,  # Transparent green
+
+<HomeScreen>:
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        # Wallet information section
+        MDCard:
+            orientation: 'horizontal'
+            size_hint_y: 0.2
+            padding: 5
+            spacing: 2
+            MDLabel:
+
+                id: wallet_id_label
+                text: "Wallet ID: "  # Dynamically update this
+                font_size: 12
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.width, None
+            MDLabel:
+                id: wallet_name_label
+                text: "wallet name : "  # Dynamically update this
+                font_size: 12
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.width, None
+            MDLabel:
+                id: wallet_scheme_label
+                text: "scheme:"  # Dynamically update this
+                font_size: 12
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.width, None
+
+            MDLabel:
+                id: wallet_multisig_label
+                text: "Multisig: "  # Dynamically update this
+                font_size: 12
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.width, None
+
+            MDLabel:
+                id: wallet_witness_label
+                text: "Witness Type: "  # Dynamically update this
+                font_size: 12
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.width, None
+
+            MDLabel:
+                id: wallet_network_label
+                text: "Network: "  # Dynamically update this
+                font_size: 12
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.width, None
+
+
+
+        # Top section with total balance
+
+        MDCard:
+            orientation: 'vertical'
+            size_hint_y: 0.3
+            padding: 20
+            spacing: 10
+
+
+
+            MDLabel:
+                id: wallet_address_label
+                text: ""  # Dynamically update this
+                font_size: 24
+                bold: True
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.width, None
+                on_touch_down: root.on_address_click(self, args[1])  # Detect touch and handle copy
+
+
+            MDLabel:
+                id: total_balance_label
+                text: ""  # Replace dynamically
+                font_size: 48
+                bold: True
+                halign: 'center'
+                valign: 'middle'
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            padding: 10
+            spacing: 10
+            halign: 'center'
+            valign: 'middle'
+            MDIcon:
+                icon: "format-list-text"  # Bitcoin icon, change it if needed
+                size_hint_x: None
+                size_hint_y: None
+                color: 1, 1, 1, 1  # White color
+
+            MDLabel:
+                text: "Transaction History"
+                color: 1, 1, 1, 1  # White color
+                font_size: 20
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.width, None
+                size_hint_y: 1
+
+
+
+        # Scrollable assets list
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            size_hint_y: 0.7
+
+            GridLayout:
+                id: transactions_list  # Assign the ID for dynamic updates
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                padding: 10
+                spacing: 10
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            padding: 10
+            spacing: 10
+            halign: 'center'
+            valign: 'middle'
+            MDIcon:
+                icon: "shield-key-outline"  # Bitcoin icon, change it if needed
+                size_hint_x: None
+                size_hint_y: None
+                color: 1, 1, 1, 1  # White color
+
+            MDLabel:
+                text: "List of Keys"
+                color: 1, 1, 1, 1  # White color
+                font_size: 20
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.width, None
+                size_hint_y: 1
+
+
+        # Scrollable assets list
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            size_hint_y: 0.2
+
+            GridLayout:
+                id: multisig_keys_list  # Assign the ID for dynamic updates
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                padding: 10
+                spacing: 10
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.2
+            spacing: 0
+
+            Button:
+                text: "Send"
+                font_size: 38
+                color: 0, 0, 0, 1      # Text color (black)
+                on_press: app.root.current = "send_screen"
+                color: 1, 1, 1, 1  # White color
+
+            Button:
+                text: "Receive"
+                font_size: 38
+                color: 0, 0, 0, 1      # Text color (black)
+                on_press: app.root.current = "recieve_screen"
+                color: 1, 1, 1, 1  # White color
+
+            Button:
+                text: "Back"
+                font_size: 38
+                color: 0, 0, 0, 1      # Text color (black)
+                on_press: root.go_back()
+                color: 1, 1, 1, 1  # White color
+
+<SendScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(10)
+
+        # Header Label
+        Label:
+            text: "Send Bitcoin"
+            font_size: dp(28)
+            bold: True
+            size_hint_y: None
+            height: dp(40)
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.size
+            color: 1, 1, 1, 1  # White text for visibility on black background
+
+        # Bitcoin Image
+        Image:
+            source: 'assets/bitcoin-btc-logo.png'  # Replace with the actual path to your image
+            size_hint: None, None
+            size: dp(250), dp(250)  # Optimized size for modern feel
+            pos_hint: {"center_x": 0.5}  # Center horizontally
+        # Receiver Address Input
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+
+            TextInput:
+                id: receiver_address_input
+                hint_text: "Enter receiver's address"
+                font_size: dp(18)
+                multiline: False
+                height: dp(40)
+                size_hint_y: None
+                background_color: 1, 1, 1, 1  # White background
+                foreground_color: 0, 0, 0, 1  # Black text
+                cursor_color: 0, 0, 0, 1  # Black cursor
+
+        # Amount Input
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+
+            TextInput:
+                id: amount_input
+                hint_text: "Enter amount in sats"
+                font_size: dp(18)
+                multiline: False
+                height: dp(40)
+                size_hint_y: None
+                background_color: 1, 1, 1, 1  # White background
+                foreground_color: 0, 0, 0, 1  # Black text
+                cursor_color: 0, 0, 0, 1  # Black cursor
+
+        # Message Input
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+
+
+            TextInput:
+                id: message_input
+                hint_text: "Enter message or label"
+                font_size: dp(18)
+                multiline: False
+                height: dp(40)
+                size_hint_y: None
+                background_color: 1, 1, 1, 1  # White background
+                foreground_color: 0, 0, 0, 1  # Black text
+                cursor_color: 0, 0, 0, 1  # Black cursor
+
+        # Action Buttons
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+
+            Button:
+                text: "Send"
+                font_size: dp(20)
+                bold: True
+                height: dp(60)
+                color: 1, 1, 1, 1  # White text
+                on_press: root.send_transaction()
+
+
+            Button:
+                text: "Save"
+                font_size: dp(20)
+                bold: True
+                height: dp(60)
+                color: 1, 1, 1, 1  # White text
+                on_press: root.save_transaction()
+
+            Button:
+                text: "Back"
+                font_size: dp(20)
+                bold: True
+                height: dp(60)
+                color: 1, 1, 1, 1  # White text
+                on_press: root.go_back()
+
+<CustomPopup>:
+    title: root.title
+    size_hint: 0.8, 0.6  # Adjusted height for better fit
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(10)
+        spacing: dp(10)
+
+        # Message section with dynamic height based on content
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+
+            # Main message
+            Label:
+                text: root.message
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.width, None  # Allow text wrapping
+                size_hint_y: None
+                height: self.texture_size[1]
+                font_size: dp(18)
+                color: 1, 1, 1, 1  # White text for visibility
+
+            # TXID label
+            Label:
+                text: f"TXID: {root.txid}" if root.txid else ""
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.width, None  # Allow text wrapping
+                size_hint_y: None
+                height: self.texture_size[1]
+                font_size: dp(16)
+                color: 0.9, 0.9, 0.9, 1  # Light gray text for TXID
+            # TXID label
+            Label:
+                text:''
+                halign: 'center'
+                valign: 'middle'
+                size_hint_y: None
+                height: dp(50)
+
+        # Action Buttons section
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: dp(50)
+            spacing: dp(10)
+
+            Button:
+                text: "Copy"
+                size_hint_x: 0.3
+                height: dp(40)
+                background_normal: ''  # Removes default background
+                background_color: 0.2, 0.6, 0.2, 1  # Green background
+                color: 1, 1, 1, 1  # White text
+                font_size: dp(16)
+                on_release: root.copy_to_clipboard()
+
+            Button:
+                text: "Mempool"
+                size_hint_x: 0.3
+                height: dp(40)
+                background_normal: ''  # Removes default background
+                background_color: 0.8, 0.6, 0.1, 1  # Yellow background
+                color: 1, 1, 1, 1  # White text
+                font_size: dp(16)
+                on_release: root.go_memepool()
+
+            Button:
+                text: "Close"
+                size_hint_x: 0.3
+                height: dp(40)
+                background_normal: ''  # Removes default background
+                background_color: 0.8, 0.1, 0.1, 1  # Red background
+                color: 1, 1, 1, 1  # White text
+                font_size: dp(16)
+                on_release: root.go_back()
+
+<ReceiveScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+
+        # QR Code Image Display
+        Image:
+            id: qr_image
+            source: ""  # Dynamically updated in the Python code
+            allow_stretch: True
+            keep_ratio: True
+            size_hint: (1, 1)
+
+        # Go Back Button
+        Button:
+            text: "Go Back"
+            size_hint_y:0.15
+            size_hint_x:0.5
+            pos_hint: {"center_x": 0.5}
+            on_press: root.go_back(self)
+
+
+
+<LoadWalletFromSeedPhrase>:
+
+    Image:
+        source: 'assets/low.jpg'  # Replace with the actual image path
+        allow_stretch: True
+        keep_ratio: False
+        #opacity: 0.5  # Adjust opacity for desired effect
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 50  # Reduced padding for more space
+        spacing: 40  # Increased spacing between widgets
+
+        # Spacer for vertical centering
+        Widget:
+            size_hint_y: 0.5
+
+        Label:
+            text: "Load New Wallet"
+            font_size: 60  # Increased font size for the title
+            bold: True
+            size_hint_y: None
+            height: '30dp'
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.width, None
+            spacing:20
+        Label:
+            text: ""
+            font_size: 28
+            bold: True
+            color: 1, 1, 1  # White text for better contrast
+            size_hint_y: None
+            height: '40dp'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.9  # Occupies 90% of the width for centering
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 30  # Spacing between each row
+
+            BoxLayout:
+                size_hint_y: None
+                height: '80dp'
+
+                Label:
+                    text: "Wallet Name:"
+                    font_size: 48  # Larger font size for labels
+                    size_hint_x: 0.3
+                    valign: 'middle'
+                    text_size: self.width, None
+
+                TextInput:
+                    id: wallet_name_input
+                    multiline: False
+                    font_size: 58  # Larger text for user input
+                    size_hint_x: 0.7
+                    height: '20dp'
+
+            BoxLayout:
+                size_hint_y: None
+                height: '80dp'
+
+                Label:
+                    text: "passphrase"
+                    font_size: 48
+                    size_hint_x: 0.3
+                    valign: 'middle'
+                    text_size: self.width, None
+
+                TextInput:
+                    id: wallet_passphrase_input
+                    multiline: False
+                    font_size: 58
+                    size_hint_x: 0.7
+                    height: '20dp'
+
+
+        Label:
+            text: ""
+            font_size: 28
+            bold: True
+            color: 1, 1, 1  # White text for better contrast
+            size_hint_y: None
+            height: '30dp'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: '100dp'  # Larger buttons
+            spacing: 60  # Spacing between buttons
+            size_hint_x: 0.9
+
+            Button:
+                text: "Load Wallet"
+                font_size: 28  # Larger button font
+                height: '100dp'
+                background_color: 0.0, 1.0, 0.0, 0.7,  # Transparent green
+
+                size_hint_x: 0.5
+                on_press: root.load_wallet_from_seedphrase()
+
+
+            Button:
+                text: "Back"
+                font_size: 28
+                height: '100dp'
+                background_color:1.0, 0.0, 0.0, 0.7,  # Transparent red
+
+                size_hint_x: 0.5
+                on_press: root.go_back()
+
+
+
+<MultiSigScreen>:
+    Image:
+        source: 'assets/low.jpg'  # Replace with the actual image path
+        allow_stretch: True
+        keep_ratio: False
+        #opacity: 0.5  # Adjust opacity for desired effect
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 60
+        spacing: 40
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Center the layout
+
+        Label:
+            text: "Select your option for Multisig setup"
+            font_size: 48
+            bold: True
+            color: 1, 1, 1  # White text for better contrast
+            size_hint_y: None
+            height: '80dp'
+
+
+
+        Button:
+            text: "Create My Multisig Wallet"
+            background_color: 0.0, 1.0, 0.0, 0.5  # Transparent green color
+
+            color: 1, 1, 1
+            size_hint: (1, None)
+            height: '80dp'
+            font_size: 28
+            on_release: root.create_multisig_wallet()
+
+        Button:
+            text: "Retrieve My Master Public Key"
+            background_color: 0, 0.5, 1, 0.5
+            color: 1, 1, 1
+            size_hint: (1, None)
+            height: '80dp'
+            font_size: 28
+            on_release: root.get_public_key()
+        Button:
+            text: "Sign a Transaction"
+            background_color: 0.5, 0.0, 1, 0.5
+            color: 1, 1, 1
+            size_hint: (1, None)
+            height: '80dp'
+            font_size: 28
+            on_release: root.sign_transaction()
+
+        Button:
+            text: "Go Back"
+            color: 1, 1, 1
+            size_hint: (1, None)
+            height: '80dp'
+            font_size: 28
+            background_color:1.0, 0.0, 0.0, 0.7,  # Transparent red
+            on_release: root.go_back()
+
+
+
+
+<CreateMultiSigWallet>:
+    Image:
+        source: 'assets/low.jpg'
+        allow_stretch: True
+        keep_ratio: False
+        #opacity: 0.5
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 50
+        spacing: 40
+
+        Widget:
+            size_hint_y: 0.5
+
+        Label:
+            text: "Create New Multi Sig Wallet"
+            font_size: 60
+            bold: True
+            size_hint_y: None
+            height: '30dp'
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.width, None
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 1
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 30
+
+            BoxLayout:
+                size_hint_y: None
+                height: '80dp'
+
+                Label:
+                    text: "Wallet Name:"
+                    font_size: 48
+                    size_hint_x: 0.3
+                    valign: 'middle'
+                    text_size: self.width, None
+
+                TextInput:
+                    id: wallet_name_input
+                    multiline: False
+                    font_size: 58
+                    size_hint_x: 0.7
+
+            BoxLayout:
+                size_hint_y: None
+                height: '80dp'
+
+                Label:
+                    text: "Sigs Required"
+                    font_size: 48
+                    size_hint_x: 0.3
+                    valign: 'middle'
+                    text_size: self.width, None
+
+                Spinner:
+                    id: sigs_required
+                    font_size: 58
+                    size_hint_x: 0.7
+                    text: '1'
+                    values: [str(i) for i in range(1, 31)]
+
+            BoxLayout:
+                size_hint_y: None
+                height: '150dp'
+
+                Label:
+                    text: "List of Wif keys"
+                    font_size: 48
+                    size_hint_x: 0.3
+                    valign: 'middle'
+                    text_size: self.width, None
+
+                TextInput:
+                    id: list_keys
+                    text: "Make sure to keep space between keys"
+                    multiline: True
+                    font_size: 38
+                    size_hint_x: 0.7
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: '100dp'
+            spacing: 60
+            size_hint_x: 1
+
+            Button:
+                text: "Create Wallet"
+                font_size: 28
+                background_color: 0.0, 1.0, 0.0, 0.7
+                size_hint_x: 0.5
+                on_press: root.save_multi_sig_wallet()
+
+            Button:
+                text: "Back"
+                font_size: 28
+                background_color: 1.0, 0.0, 0.0, 0.7
+                size_hint_x: 0.5
+                on_press: root.go_back()
+
+
+
+
+<SignTrx>:
+    Image:
+        source: 'assets/low.jpg'  # Replace with the actual image path
+        keep_ratio: False
+        #opacity: 0.5  # Adjust opacity for desired effect
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(10)
+
+        # File Upload Section
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: dp(50)
+            spacing: dp(10)
+
+            Button:
+                id:name_button_upload
+                text: "Upload Transaction File"
+                on_release: root.open_file_chooser()
+
+            Image:
+                source: 'assets/upload_icon.png'  # To display uploaded file as an image
+                size_hint: None, None
+                size: dp(50), dp(50)
+
+        # Search Bar
+        TextInput:
+            id: search_key
+            hint_text: "Search for a key"
+            size_hint_y: None
+            height: dp(50)
+            on_text: root.filter_keys(self.text)
+            font_size: dp(20)
+
+        # List of Keys
+        ScrollView:
+            MDList:
+                id: key_list
+
+        # Buttons Section
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: dp(50)
+            spacing: dp(10)
+
+            Button:
+                text: "Sign Transaction"
+                on_release: root.sign_transaction()
+
+            Button:
+                text: "Broadcast Transaction"
+                on_release: root.broadcast_transaction()
+
+            Button:
+                text: "go back"
+                on_release: root.go_back()
